@@ -11,3 +11,8 @@ sky:
     access-key-id: PLACEHOLDER_OSS_KEY_ID
     access-key-secret: PLACEHOLDER_OSS_KEY_SECRET
     bucket-name: PLACEHOLDER_OSS_BUCKET
+  redis:
+    host: localhost
+    port: 6379
+    password: 123456
+    database: 10
