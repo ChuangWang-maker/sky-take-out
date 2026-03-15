@@ -50,4 +50,11 @@ public interface DishService {
     List<Dish> listByCategoryId(Long categoryId);
 
     void startOrStop(Integer status, Long id);
+
+    /**
+     * 根据条件查询菜品数据
+     * @param dish
+     * @return
+     */
+    List<DishVO> listWithFlavor(Dish dish);
 }
