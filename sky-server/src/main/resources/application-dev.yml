@@ -19,3 +19,10 @@ sky:
   wechat:
     app-id: PLACEHOLDER_WX_APPID
     secret: PLACEHOLDER_WX_SECRET
+    mchid: PLACEHOLDER_WX_MCHID
+    mchSerialNo: PLACEHOLDER_WX_SERIAL
+    privateKeyFilePath: D:\pay\apiclient_key.pem
+    apiV3Key: PLACEHOLDER_WX_API_V3
+    weChatPayCertFilePath: D:\pay\wechatpay_166D96F876F45C7D07CE98952A96EC980368ACFC.pem
+    notifyUrl: https://522166af.r16.vip.cpolar.cn/notify/paySuccess
+    refundNotifyUrl: https://522166af.r16.vip.cpolar.cn/notify/refundSuccess
