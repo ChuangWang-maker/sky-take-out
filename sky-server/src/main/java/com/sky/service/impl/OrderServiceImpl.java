@@ -21,6 +21,7 @@ import com.sky.vo.OrderPaymentVO;
 import com.sky.vo.OrderStatisticsVO;
 import com.sky.vo.OrderSubmitVO;
 import com.sky.vo.OrderVO;
+import com.sky.websocket.WebSocketServer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,6 +61,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Value("${sky.baidu.ak}")
     private String ak;
+
+    @Autowired
+    private WebSocketServer webSocketServer;
 
 
     /*
@@ -128,6 +132,15 @@ public class OrderServiceImpl implements OrderService {
                 .orderTime(order.getOrderTime())
                 .build();
 
+        // 通过WebSocket向客户端推送消息TODO,这里放在了用户下单处
+        Map map = new HashMap();
+        map.put("type", 1);//1表示来一条消息2表示来一条通知
+        map.put("orderId", orderSubmitVO.getId());//订单id
+        map.put("content", "订单号：" + orderSubmitVO.getOrderNumber());
+
+        String json = JSON.toJSONString(map);
+        webSocketServer.sendToAllClient(json);
+
         return orderSubmitVO;
     }
 
@@ -179,6 +192,16 @@ public class OrderServiceImpl implements OrderService {
                 .build();
 
         orderMapper.update(orders);
+
+       //TODO，订单支付成功，向客户端推送消息，这里是实际应该推送的
+        /*// 通过WebSocket向客户端推送消息
+        Map map = new HashMap();
+        map.put("type", 1);//1表示来一条消息2表示来一条通知
+        map.put("orderId", ordersDB.getId());//订单id
+        map.put("content", "订单号：" + outTradeNo);
+
+        String json = JSON.toJSONString(map);
+        webSocketServer.sendToAllClient(json);*/
     }
 
     /**
