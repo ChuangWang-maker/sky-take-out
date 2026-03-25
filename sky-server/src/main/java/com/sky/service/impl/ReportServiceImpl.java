@@ -41,7 +41,7 @@ public class ReportServiceImpl implements ReportService {
         }
 
         //存放每天的营业额
-        List<Double> turnoverList = new ArrayList<>();
+        List<Double> turnoverList = new ArrayList<>();//
         for (LocalDate date : dateList) {
             //查询date日期对应的营业额数据,营业额是指：状态为“已完成”的订单金额合计
             LocalDateTime beginTime = LocalDateTime.of(date, LocalTime.MIN);
