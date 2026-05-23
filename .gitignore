@@ -4,3 +4,29 @@
 *.class
 *Test.java
 **/test/
+
+# Maven
+*.war
+*.jar
+*.zip
+*.tar.gz
+*.rar
+.mvn/
+mvnw
+mvnw.cmd
+
+# IDE
+.settings/
+.project
+.classpath
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/

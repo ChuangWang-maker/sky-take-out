@@ -1,28 +1,28 @@
 sky:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    host: localhost
-    port: 3306
-    database: sky_take_out
-    username: root
-    password: 1234
+    host: ${sky.datasource.host}
+    port: ${sky.datasource.port}
+    database: ${sky.datasource.database}
+    username: ${sky.datasource.username}
+    password: ${sky.datasource.password}
   alioss:
-    endpoint: oss-cn-beijing.aliyuncs.com
-    access-key-id: PLACEHOLDER_OSS_KEY_ID
-    access-key-secret: PLACEHOLDER_OSS_KEY_SECRET
-    bucket-name: PLACEHOLDER_OSS_BUCKET
+    endpoint: ${sky.alioss.endpoint}
+    access-key-id: ${sky.alioss.access-key-id}
+    access-key-secret: ${sky.alioss.access-key-secret}
+    bucket-name: ${sky.alioss.bucket-name}
   redis:
-    host: localhost
-    port: 6379
-    password: 123456
-    database: 10
+    host: ${sky.redis.host}
+    port: ${sky.redis.port}
+    password: ${sky.redis.password}
+    database: ${sky.redis.database}
   wechat:
-    app-id: PLACEHOLDER_WX_APPID
-    secret: PLACEHOLDER_WX_SECRET
-    mchid: PLACEHOLDER_WX_MCHID
-    mchSerialNo: PLACEHOLDER_WX_SERIAL
-    privateKeyFilePath: D:\pay\apiclient_key.pem
-    apiV3Key: PLACEHOLDER_WX_API_V3
-    weChatPayCertFilePath: D:\pay\wechatpay_166D96F876F45C7D07CE98952A96EC980368ACFC.pem
-    notifyUrl: https://4c5c1882.r27.cpolar.top/notify/paySuccess
-    refundNotifyUrl: https://4c5c1882.r27.cpolar.top/notify/refundSuccess
+    app-id: ${sky.wechat.appid}
+    secret: ${sky.wechat.secret}
+    mchid: ${sky.wechat.mchid}
+    mchSerialNo: ${sky.wechat.mchSerialNo}
+    privateKeyFilePath: ${sky.wechat.privateKeyFilePath}
+    apiV3Key: ${sky.wechat.apiV3Key}
+    weChatPayCertFilePath: ${sky.wechat.weChatPayCertFilePath}
+    notifyUrl: ${sky.wechat.notifyUrl}
+    refundNotifyUrl: ${sky.wechat.refundNotifyUrl}
